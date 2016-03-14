@@ -1,3 +1,12 @@
 [submodule "data/repos/linux"]
 	path = data/repos/linux
 	url = git://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git
+[submodule "data/repos/autoconf"]
+	path = data/repos/autoconf
+	url = git://git.sv.gnu.org/autoconf.git
+[submodule "data/repos/automake"]
+	path = data/repos/automake
+	url = git://git.savannah.gnu.org/automake.git
+[submodule "data/repos/bash"]
+	path = data/repos/bash
+	url = git://git.savannah.gnu.org/bash.git

@@ -10,3 +10,45 @@
 [submodule "data/repos/bash"]
 	path = data/repos/bash
 	url = git://git.savannah.gnu.org/bash.git
+[submodule "data/repos/bison"]
+	path = data/repos/bison
+	url = git://git.savannah.gnu.org/bison.git
+[submodule "data/repos/coreutils"]
+	path = data/repos/coreutils
+	url = git://git.savannah.gnu.org/coreutils.git
+[submodule "data/repos/cpio"]
+	path = data/repos/cpio
+	url = git://git.savannah.gnu.org/cpio.git
+[submodule "data/repos/emacs"]
+	path = data/repos/emacs
+	url = git://git.savannah.gnu.org/emacs.git
+[submodule "data/repos/gawk"]
+	path = data/repos/gawk
+	url = git://git.savannah.gnu.org/gawk.git
+[submodule "data/repos/ghostscript"]
+	path = data/repos/ghostscript
+	url = git://git.savannah.gnu.org/ghostscript.git
+[submodule "data/repos/gnupg"]
+	path = data/repos/gnupg
+	url = git://git.gnupg.org/gnupg.git
+[submodule "data/repos/grep"]
+	path = data/repos/grep
+	url = git://git.savannah.gnu.org/grep.git
+[submodule "data/repos/gzip"]
+	path = data/repos/gzip
+	url = git://git.savannah.gnu.org/gzip.git
+[submodule "data/repos/make"]
+	path = data/repos/make
+	url = git://git.savannah.gnu.org/make.git
+[submodule "data/repos/sed"]
+	path = data/repos/sed
+	url = git://git.savannah.gnu.org/sed.git
+[submodule "data/repos/screen"]
+	path = data/repos/screen
+	url = git://git.savannah.gnu.org/screen.git
+[submodule "data/repos/tar"]
+	path = data/repos/tar
+	url = git://git.savannah.gnu.org/tar.git
+[submodule "data/repos/wget"]
+	path = data/repos/wget
+	url = git://git.savannah.gnu.org/wget.git

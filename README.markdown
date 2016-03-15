@@ -7,6 +7,15 @@ This repository has a lot of submodules; running `git submodule update` for the
 first time will take a **long** time. It will also require quite a bit of disk
 space - around 2 GiB.
 
+## Running the Code
+There is a `Makefile` that will run the analysis. In order to get all the
+python packages, `venv.sh` and `requirements.txt` are provided. `venv.sh` sets
+up a python virtual environment with all the necessary stuff. In order to run
+the code, run:
+
+    source venv.sh
+    make
+
 ## Software List
 
 * autoconf 2.69

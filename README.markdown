@@ -18,6 +18,7 @@ space - around 2 GiB.
 * emacs 24.5
 * gawk 4.1.3
 * ghostscript 9.14.0
+* git 2.7.3
 * gnupg 2.1.11
 * grep 2.24
 * gzip 1.6
@@ -25,5 +26,6 @@ space - around 2 GiB.
 * make 4.1
 * sed 4.2.2
 * screen 4.3.1
+* systemd 229
 * tar 1.28
 * wget 1.17.1

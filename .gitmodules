@@ -52,3 +52,9 @@
 [submodule "data/repos/wget"]
 	path = data/repos/wget
 	url = git://git.savannah.gnu.org/wget.git
+[submodule "data/repos/systemd"]
+	path = data/repos/systemd
+	url = git://github.com/systemd/systemd.git
+[submodule "data/repos/git"]
+	path = data/repos/git
+	url = git://git.kernel.org/pub/scm/git/git.git

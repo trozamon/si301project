@@ -58,3 +58,9 @@
 [submodule "data/repos/git"]
 	path = data/repos/git
 	url = git://git.kernel.org/pub/scm/git/git.git
+[submodule "data/repos/polkit"]
+	path = data/repos/polkit
+	url = git://anongit.freedesktop.org/polkit
+[submodule "data/repos/dbus"]
+	path = data/repos/dbus
+	url = git://anongit.freedesktop.org/dbus/dbus.git

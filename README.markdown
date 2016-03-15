@@ -15,6 +15,7 @@ space - around 2 GiB.
 * bison 3.0.4
 * coreutils 8.25
 * cpio 2.12
+* dbus 1.9.20
 * emacs 24.5
 * gawk 4.1.3
 * ghostscript 9.14.0
@@ -24,8 +25,9 @@ space - around 2 GiB.
 * gzip 1.6
 * linux 4.5
 * make 4.1
-* sed 4.2.2
+* polkit 0.113
 * screen 4.3.1
+* sed 4.2.2
 * systemd 229
 * tar 1.28
 * wget 1.17.1

@@ -1,3 +1,6 @@
+import os
+import subprocess
+
 def cd_cmd(directory, cmd):
     cwd = os.getcwd()
 

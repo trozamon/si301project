@@ -23,13 +23,21 @@ REPOS := autoconf \
 
 REPO_INFOS := $(patsubst %, build/%.json, $(REPOS))
 
-all : $(REPO_INFOS)
+all : $(REPO_INFOS) build/companies.svg
 
 clean :
 	rm -rf ./build
 
 build/%.json : data/repos/% src/analyze.py
 	test -d ./build || mkdir -p ./build
-	export PYTHONPATH="./src:$${PYTHONPATH}" && python src/analyze.py $< > $@
+	export PYTHONPATH="./src:$${PYTHONPATH}" && \
+		python src/analyze.py $< > $@
+
+build/companies.svg : build/companies.dot
+	dot -Tsvg $< > $@
+
+build/companies.dot : $(REPO_INFOS)
+	export PYTHONPATH="./src:$${PYTHONPATH}" && \
+		python src/companies.py $^ > $@
 
 .PHONY : all clean

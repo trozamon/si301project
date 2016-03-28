@@ -1,9 +1,9 @@
 #!/usr/bin/env python
 
+from si301 import email, mailmap
 import json
 import networkx
 import os
-import si301.email
 import sys
 
 
@@ -18,10 +18,9 @@ def run(summary_files):
             stats = json.loads(f.read())
 
         for author_addr in stats:
-            addr = si301.email.Address(author_addr)
-            dom = addr.get_domain()
-            if not "\"" in dom:
-                g.add_edge(project_name, addr.get_domain())
+            dom = mailmap.get_company(author_addr)
+            if len(dom) > 0:
+                g.add_edge(project_name, dom)
 
     output = ["digraph G {"]
     for edge in g.edges():

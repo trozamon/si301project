@@ -13,10 +13,8 @@ def print_usage():
 if __name__ == "__main__":
     folder = sys.argv[1]
     repo = si301.git.Repo(folder)
-    authors = repo.get_authors()
     contribs = {}
 
-    for auth in authors:
-        contribs[str(auth.email)] = auth.contributions[repo.project]
-
-    print(json.dumps(contribs, sort_keys=True, indent=2))
+    print("retrieving all authors...", file=sys.stderr)
+    authors = repo.get_authors()
+    print(json.dumps(authors, sort_keys=True, indent=2))

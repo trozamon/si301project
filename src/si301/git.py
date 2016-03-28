@@ -5,15 +5,12 @@ import si301.utils
 class Author:
 
     def __init__(self, name):
-        self.contributions = {}
+        self.contributions = 0
         self.set_name(name)
 
-    def add_contribution(self, project, n=1):
+    def add_contribution(self, n=1):
         """ Add n contribution(s) from this author to the given project """
-        try:
-            self.contributions[project] = self.contributions[project] + n
-        except KeyError:
-            self.contributions[project] = n
+        self.contributions = self.contributions + n
 
     def set_name(self, name):
         """ Parses strings like "Alec Ten Harmsel <talec@umich.edu>" """
@@ -68,13 +65,8 @@ class Repo:
             auth = commit.author
 
             try:
-                authors[str(auth.email)].add_contribution(self.project)
+                authors[str(auth.email)] = authors[str(auth.email)] + 1
             except KeyError:
-                authors[str(auth.email)] = auth
-                authors[str(auth.email)].add_contribution(self.project)
+                authors[str(auth.email)] = 0
 
-        l = []
-        for auth in authors:
-            l = l + [authors[auth]]
-
-        return l
+        return authors

@@ -28,6 +28,10 @@ all : $(REPO_INFOS) build/companies.svg
 clean :
 	rm -rf ./build
 
+check :
+	export PYTHONPATH="./src:$${PYTHONPATH}" && \
+		python -m unittest discover -s tests -p '*_test.py'
+
 build/%.json : data/repos/% src/analyze.py
 	test -d ./build || mkdir -p ./build
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
@@ -40,4 +44,4 @@ build/companies.dot : $(REPO_INFOS)
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
 		python src/companies.py $^ > $@
 
-.PHONY : all clean
+.PHONY : all check clean

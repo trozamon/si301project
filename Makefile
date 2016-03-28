@@ -32,16 +32,16 @@ check :
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
 		python -m unittest discover -s tests -p '*_test.py'
 
-build/%.json : data/repos/% src/analyze.py
+build/%.json : src/analyze.py data/repos/%
 	test -d ./build || mkdir -p ./build
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
-		python src/analyze.py $< > $@
+		python $^ > $@
 
 build/companies.svg : build/companies.dot
 	dot -Tsvg $< > $@
 
-build/companies.dot : $(REPO_INFOS)
+build/companies.dot : src/companies.py $(REPO_INFOS)
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
-		python src/companies.py $^ > $@
+		python $^ > $@
 
 .PHONY : all check clean

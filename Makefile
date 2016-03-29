@@ -35,7 +35,7 @@ check :
 build/%.json : src/analyze.py data/repos/%
 	test -d ./build || mkdir -p ./build
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
-		python $^ > $@
+		python $^ $@
 
 build/companies.svg : build/companies.dot
 	dot -Tsvg $< > $@

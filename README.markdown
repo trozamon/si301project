@@ -16,6 +16,11 @@ the code, run:
     source venv.sh
     make
 
+## Running the tests
+Running the tests is possible with:
+
+    make check
+
 ## Software List
 
 * autoconf 2.69

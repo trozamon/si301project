@@ -20,6 +20,6 @@ build/companies.svg : build/companies.dot
 
 build/companies.dot : src/companies.py $(REPO_INFOS)
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
-		python $^ > $@
+		python $^ $@
 
 .PHONY : all check clean

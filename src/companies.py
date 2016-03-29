@@ -1,10 +1,29 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
 from si301 import email, mailmap
+import argparse
 import json
 import networkx
 import os
 import sys
+
+
+def parse_args():
+    parser = argparse.ArgumentParser(description='generate company graphic')
+
+    parser.add_argument('input_files',
+            type=list,
+            nargs='+',
+            help='JSON input files of contributors'
+            )
+
+    parser.add_argument('output_file',
+            type=str,
+            help='Output .dot file for graphviz'
+            )
+
+    return parser.parse_args()
 
 
 def run(summary_files):
@@ -32,5 +51,11 @@ def run(summary_files):
 
 
 if __name__ == "__main__":
-    out = run(sys.argv[1:])
-    print(out)
+    args = parse_args()
+
+    print('doing mad graph analytics...', file=sys.stderr)
+    out = run(args.input_files)
+
+    print('writing output to ' + args.output_file, file=sys.stderr)
+    with open(args.output_file, 'w') as f:
+        f.write(out)

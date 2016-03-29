@@ -33,7 +33,7 @@ if __name__ == "__main__":
     repo = si301.git.Repo(args.path_to_repo)
 
     print("retrieving all authors...", file=sys.stderr)
-    authors = repo.get_authors()
+    authors = repo.get_authors_fast()
 
     with open(args.output_file, 'w') as f:
         f.write(json.dumps(authors, sort_keys=True, indent=2))

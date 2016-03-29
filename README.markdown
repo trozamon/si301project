@@ -29,6 +29,7 @@ Running the tests is possible with:
 * bison 3.0.4
 * coreutils 8.25
 * cpio 2.12
+* curl 7.48.0
 * dbus 1.9.20
 * emacs 24.5
 * gawk 4.1.3
@@ -37,6 +38,7 @@ Running the tests is possible with:
 * gnupg 2.1.11
 * grep 2.24
 * gzip 1.6
+* httpd 2.4.18
 * linux 4.5
 * make 4.1
 * polkit 0.113

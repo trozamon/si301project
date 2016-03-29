@@ -64,3 +64,9 @@
 [submodule "data/repos/dbus"]
 	path = data/repos/dbus
 	url = git://anongit.freedesktop.org/dbus/dbus.git
+[submodule "data/repos/httpd"]
+	path = data/repos/httpd
+	url = git://github.com/apache/httpd.git
+[submodule "data/repos/curl"]
+	path = data/repos/curl
+	url = git://github.com/curl/curl.git

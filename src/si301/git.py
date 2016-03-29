@@ -1,4 +1,5 @@
 import os
+import re
 import si301.email
 import si301.utils
 
@@ -22,6 +23,14 @@ class Author:
         self.email = si301.email.Address(parts[1].replace(">", ""))
 
 
+class CommitMessage:
+
+    def __init__(self, raw_msg):
+        for line in raw_msg.split("\n"):
+            if len(line) > 0 and line.startswith("Author: "):
+                self.author = Author(line.replace("Author: ", ""))
+
+
 class Commit:
 
     def __init__(self, path_to_repo, revision):
@@ -31,9 +40,7 @@ class Commit:
         raw = si301.utils.cd_cmd(path_to_repo,
                 ["git", "show", "--format=short", revision])
 
-        for line in raw.split("\n"):
-            if len(line) > 0 and line.startswith("Author: "):
-                self.author = Author(line.replace("Author: ", ""))
+        self.msg = CommitMessage(raw)
 
 
 class Repo:
@@ -51,6 +58,9 @@ class Repo:
 
         return self.revs
 
+    def get_log(self):
+        return si301.utils.cd_cmd(self.path, ['git', 'log'])
+
     def get_authors(self):
         authors = {}
 
@@ -62,11 +72,27 @@ class Repo:
             except ValueError:
                 continue
 
-            auth = commit.author
+            auth = commit.msg.author
 
             try:
                 authors[str(auth.email)] = authors[str(auth.email)] + 1
             except KeyError:
                 authors[str(auth.email)] = 0
+
+        return authors
+
+    def get_authors_fast(self):
+        raw_log = self.get_log().split("\n")
+        regex = re.compile('^Author: .* <.*>$')
+        authors = {}
+
+        for line in raw_log:
+            if regex.match(line):
+                auth = Author(line.replace("Author: ", ""))
+
+                try:
+                    authors[str(auth.email)] = authors[str(auth.email)] + 1
+                except KeyError:
+                    authors[str(auth.email)] = 0
 
         return authors

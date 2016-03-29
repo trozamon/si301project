@@ -76,3 +76,6 @@
 [submodule "data/repos/binutils"]
 	path = data/repos/binutils
 	url = git://sourceware.org/git/binutils-gdb.git
+[submodule "data/repos/glibc"]
+	path = data/repos/glibc
+	url = git://sourceware.org/git/glibc.git

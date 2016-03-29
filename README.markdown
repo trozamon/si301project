@@ -37,6 +37,7 @@ Running the tests is possible with:
 * gcc 5.3.0
 * ghostscript 9.14.0
 * git 2.7.3
+* glibc 2.23
 * gnupg 2.1.11
 * grep 2.24
 * gzip 1.6

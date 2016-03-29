@@ -33,6 +33,7 @@ Running the tests is possible with:
 * dbus 1.9.20
 * emacs 24.5
 * gawk 4.1.3
+* gcc 5.3.0
 * ghostscript 9.14.0
 * git 2.7.3
 * gnupg 2.1.11

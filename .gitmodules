@@ -73,3 +73,6 @@
 [submodule "data/repos/gcc"]
 	path = data/repos/gcc
 	url = git://gcc.gnu.org/git/gcc.git
+[submodule "data/repos/binutils"]
+	path = data/repos/binutils
+	url = git://sourceware.org/git/binutils-gdb.git

@@ -26,6 +26,7 @@ Running the tests is possible with:
 * autoconf 2.69
 * automake 1.15
 * bash 4.3
+* binutils 2.26
 * bison 3.0.4
 * coreutils 8.25
 * cpio 2.12

@@ -1,7 +1,8 @@
 REPOS := $(patsubst data/repos/%, %, $(wildcard data/repos/*))
 REPO_INFOS := $(patsubst %, build/%.json, $(REPOS))
 
-all : $(REPO_INFOS) build/companies.svg
+all : $(REPO_INFOS) \
+	build/companies.svg
 
 clean :
 	rm -rf ./build

@@ -13,7 +13,7 @@ def parse_args():
     parser = argparse.ArgumentParser(description='generate company graphic')
 
     parser.add_argument('input_files',
-            type=list,
+            type=str,
             nargs='+',
             help='JSON input files of contributors'
             )

@@ -33,6 +33,7 @@ Running the tests is possible with:
 * cups 2.1.3
 * curl 7.48.0
 * dbus 1.9.20
+* dpkg 1.18.4
 * emacs 24.5
 * gawk 4.1.3
 * gcc 5.3.0

@@ -85,3 +85,6 @@
 [submodule "data/repos/rpm"]
 	path = data/repos/rpm
 	url = git://github.com/rpm-software-management/rpm.git
+[submodule "data/repos/dpkg"]
+	path = data/repos/dpkg
+	url = git://anonscm.debian.org/dpkg/dpkg.git

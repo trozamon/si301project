@@ -30,6 +30,7 @@ Running the tests is possible with:
 * bison 3.0.4
 * coreutils 8.25
 * cpio 2.12
+* cups 2.1.3
 * curl 7.48.0
 * dbus 1.9.20
 * emacs 24.5

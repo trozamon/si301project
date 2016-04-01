@@ -79,3 +79,6 @@
 [submodule "data/repos/glibc"]
 	path = data/repos/glibc
 	url = git://sourceware.org/git/glibc.git
+[submodule "data/repos/cups"]
+	path = data/repos/cups
+	url = git://github.com/apple/cups.git

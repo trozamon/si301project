@@ -1,4 +1,5 @@
 from unittest import TestCase
+from si301 import email
 
 class EmailTest(TestCase):
 

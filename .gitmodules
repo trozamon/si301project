@@ -82,3 +82,6 @@
 [submodule "data/repos/cups"]
 	path = data/repos/cups
 	url = git://github.com/apple/cups.git
+[submodule "data/repos/rpm"]
+	path = data/repos/rpm
+	url = git://github.com/rpm-software-management/rpm.git

@@ -46,6 +46,7 @@ Running the tests is possible with:
 * linux 4.5
 * make 4.1
 * polkit 0.113
+* rpm 4.12.0
 * screen 4.3.1
 * sed 4.2.2
 * systemd 229

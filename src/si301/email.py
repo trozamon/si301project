@@ -10,7 +10,12 @@ class Address:
             if len(tmp) >= 3:
                 return '.'.join(tmp[-2:])
 
-        return self.addr.split("@")[-1]
+        dom = self.addr.split('@')[-1]
+
+        if len(dom.split('.')) == 2:
+            return dom.split("@")[-1]
+        else:
+            return '.'.join(dom.split('.')[-2:])
 
     def __str__(self):
         return self.addr

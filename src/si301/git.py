@@ -93,6 +93,6 @@ class Repo:
                 try:
                     authors[str(auth.email)] = authors[str(auth.email)] + 1
                 except KeyError:
-                    authors[str(auth.email)] = 0
+                    authors[str(auth.email)] = 1
 
         return authors

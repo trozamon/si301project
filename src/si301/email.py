@@ -11,11 +11,12 @@ class Address:
                 return '.'.join(tmp[-2:])
 
         dom = self.addr.split('@')[-1]
+        dom_arr = dom.split('.')
 
-        if len(dom.split('.')) == 2:
-            return dom.split("@")[-1]
+        if dom_arr[-1] == 'uk':
+            return '.'.join(dom_arr[-3:])
         else:
-            return '.'.join(dom.split('.')[-2:])
+            return '.'.join(dom_arr[-2:])
 
     def __str__(self):
         return self.addr

@@ -15,5 +15,9 @@ class MailmapTest(TestCase):
                 mailmap.get_company('joe.blow@support.dell.com'))
 
 
+    def testUKDomain(self):
+        self.assertEqual('Cambridge University',
+                mailmap.get_company('cs448@cam.ac.uk'))
+
 if __name__ == '__main__':
     main()

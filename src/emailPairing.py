@@ -18,13 +18,13 @@ high_val_commits = 0;
 d = {}
 
 
-path = u'/Users/prenner/si301/build/*.json'   
+path = u'build/*.json'
 files = glob.glob(path)  
 count = 0;
 for name in files:
 	short = name.rsplit(u'/')[-1]
 
-	newpath = u'/Users/prenner/si301/build/' + short
+	newpath = u'build/' + short
 	with open(newpath) as data_file:    
 		data = json.load(data_file)
 

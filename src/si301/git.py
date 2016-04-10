@@ -96,3 +96,17 @@ class Repo:
                     authors[str(auth.email)] = 1
 
         return authors
+
+    def tag_list(self):
+        return si301.utils.cd_cmd(self.path, ['git', 'tag', '-l']).split("\n")
+
+    def get_tag_msgs(self):
+        msgs = []
+
+        for t in self.tag_list():
+            if len(t) == 0:
+                continue
+
+            msgs.append(si301.utils.cd_cmd(self.path, ['git', 'show', t]))
+
+        return msgs

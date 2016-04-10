@@ -2,6 +2,7 @@ from __future__ import print_function
 from si301 import git
 import argparse
 from datetime import datetime
+import numpy
 import re
 
 
@@ -29,10 +30,24 @@ def run(input_repos):
         for msg in msgs:
             for line in msg.split("\n"):
                 if re.match('Date:.*\d+ \d+:\d+:\d+ \d\d\d\d [+-]\d\d\d\d', line):
-                    dates.append(line.replace("Date:   ", "")[0:-6])
+                    date = datetime.strptime(
+                            line.replace("Date:   ", "")[0:-6],
+                            "%a %b %d %H:%M:%S %Y"
+                            )
 
-        for date in dates:
-            real_date = datetime.strptime(date, "%a %b %d %H:%M:%S %Y")
+                    dates.append(date)
+
+        dates = sorted(dates)
+        diffs = []
+        for i in range(1, len(dates)):
+            prev = dates[i - 1]
+            curr = dates[i]
+            dt = curr - prev
+
+            diffs.append((float(dt.days) * 24.0) + (float(dt.seconds) / 3600.0))
+
+        d = numpy.array(diffs)
+        print(numpy.average(d))
 
 if  __name__ == "__main__":
     run(parse_args().input_files)

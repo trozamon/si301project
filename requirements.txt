@@ -1,6 +1,8 @@
 decorator==4.0.9
 networkx==1.11
+numpy==1.11.0
 pluggy==0.3.1
 py==1.4.31
 tox==2.3.1
 virtualenv==15.0.0
+wheel==0.24.0

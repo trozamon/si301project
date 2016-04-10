@@ -100,6 +100,16 @@ class Repo:
     def tag_list(self):
         return si301.utils.cd_cmd(self.path, ['git', 'tag', '-l']).split("\n")
 
+    def get_tag_dates(self):
+        msgs = si301.utils.cd_cmd(self.path, ['git', 'show', '--tags'])
+        date_strs = []
+
+        for msg in msgs.split("\n"):
+            if re.match('Date:.*\d+ \d+:\d+:\d+ \d\d\d\d [+-]\d\d\d\d', msg):
+                date_strs.append(msg)
+
+        return date_strs
+
     def get_tag_msgs(self):
         msgs = []
 

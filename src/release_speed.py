@@ -3,7 +3,7 @@ from si301 import git
 import argparse
 from datetime import datetime
 import numpy
-import re
+import sys
 
 
 def parse_args():
@@ -15,27 +15,36 @@ def parse_args():
             help='repo list'
             )
 
+    parser.add_argument('output_file',
+            type=str,
+            help='output summary file'
+            )
+
     return parser.parse_args()
 
 
-def run(input_repos):
+def run(input_files, out_file):
     release_speed = {}
+    output = []
 
-    for r in input_repos:
-        print("computing for " + r)
-
-        msgs = git.Repo(r).get_tag_msgs()
+    for fname in input_files:
         dates = []
 
-        for msg in msgs:
-            for line in msg.split("\n"):
-                if re.match('Date:.*\d+ \d+:\d+:\d+ \d\d\d\d [+-]\d\d\d\d', line):
+        with open(fname) as f:
+            for line in f:
+                date = None
+                line = line.rstrip("\n")
+
+                try:
                     date = datetime.strptime(
                             line.replace("Date:   ", "")[0:-6],
                             "%a %b %d %H:%M:%S %Y"
                             )
+                except ValueError:
+                    print("failed on \"" + line + "\" in " + fname,
+                            file=sys.stderr)
 
-                    dates.append(date)
+                dates.append(date)
 
         dates = sorted(dates)
         diffs = []
@@ -47,7 +56,11 @@ def run(input_repos):
             diffs.append((float(dt.days) * 24.0) + (float(dt.seconds) / 3600.0))
 
         d = numpy.array(diffs)
-        print(numpy.average(d))
+        output.append(fname + ": " + str(numpy.average(d)) + " hours")
+
+    with open(out_file, 'w') as f:
+        f.write("\n".join(output))
 
 if  __name__ == "__main__":
-    run(parse_args().input_files)
+    args = parse_args()
+    run(args.input_files, args.output_file)

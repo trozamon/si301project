@@ -4,7 +4,8 @@ REPO_TAG_DATES := $(patsubst %, build/%.tagdates, $(REPOS))
 
 all : $(REPO_INFOS) \
 	build/companies.svg \
-	build/release_speed.txt
+	build/company_contribs.csv \
+	build/release_speed.csv
 
 clean :
 	rm -rf ./build
@@ -21,7 +22,11 @@ build/%.json : src/analyze.py data/repos/%
 build/%.tagdates : data/repos/%
 	(cd $< && git show --tags | egrep "^Date:") > $@
 
-build/release_speed.txt : src/release_speed.py $(REPO_TAG_DATES)
+build/release_speed.csv : src/release_speed.py $(REPO_TAG_DATES)
+	export PYTHONPATH="./src:$${PYTHONPATH}" && \
+		python $^ $@
+
+build/company_contribs.csv : src/company_contribs.py $(REPO_INFOS)
 	export PYTHONPATH="./src:$${PYTHONPATH}" && \
 		python $^ $@
 

@@ -25,7 +25,7 @@ def parse_args():
 
 def run(input_files, out_file):
     release_speed = {}
-    output = []
+    output = ["project_name,hours"]
 
     for fname in input_files:
         dates = []
@@ -56,7 +56,8 @@ def run(input_files, out_file):
             diffs.append((float(dt.days) * 24.0) + (float(dt.seconds) / 3600.0))
 
         d = numpy.array(diffs)
-        output.append(fname + ": " + str(numpy.average(d)) + " hours")
+        project_name = fname.split("/")[-1].split(".")[0]
+        output.append(project_name + "," + str(numpy.average(d)))
 
     with open(out_file, 'w') as f:
         f.write("\n".join(output))
